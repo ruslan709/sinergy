@@ -1,38 +1,184 @@
-.App {
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(45deg, #ff5733, #33a8ff);
+  }
+  25% {
+    background: linear-gradient(45deg, #33a8ff, #33ff57);
+  }
+  50% {
+    background: linear-gradient(45deg, #33ff57, #ff5733);
+  }
+  75% {
+    background: linear-gradient(45deg, #ff5733, #33a8ff);
+  }
+  100% {
+    background: linear-gradient(45deg, #33a8ff, #33ff57);
+  }
+}
+
+.quiz-container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quiz-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.question {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.options {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 20px;
+}
+
+.option {
+  font-size: 18px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.next-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.difficulty-buttons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.difficulty-buttons button {
+  background-color: #0074cc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* Анимированный фон */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: backgroundAnimation 30s infinite alternate; /* Применяем анимацию */
+}
+
+.easy {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+medium {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+hard {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+.finish-quiz-button {
+  background-color: #f44336; /* Красный цвет */
   color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.finish-quiz-button:hover {
+  background-color: #d32f2f; /* Темно-красный цвет при наведении */
+}
+.chat-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.chat-message {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.message-text {
+  font-weight: bold;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.chat-input button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
